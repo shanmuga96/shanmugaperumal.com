@@ -43,12 +43,21 @@ Open the URL in your browser to view the website.
 
 ## Development Workflow
 
-This project follows a feature-based Git workflow.
+This project follows a branch-based Git workflow with two long-lived branches:
 
-Create a new branch from `main` before starting a new piece of work:
+- `dev` — integration branch; all work branches start here and merge back here
+- `main` — production branch; `dev` is promoted to `main` when ready
 
-    git checkout main
-    git pull origin main
+Work branches use these prefixes:
+
+- `feature/<feature-name>` — new features
+- `fix/<bug-fix-name>` — bug fixes
+- `chore/<name>` — cleanups, tooling, and documentation
+
+Always start from the latest `dev`:
+
+    git checkout dev
+    git pull origin dev
     git checkout -b feature/<feature-name>
 
 For example:
@@ -61,7 +70,11 @@ After completing the work:
     git commit -m "feat(home): implement homepage hero"
     git push origin feature/homepage-hero
 
-Create a Pull Request on GitHub and merge the branch into `main` after review.
+Create a Pull Request into `dev` on GitHub and merge it after review. Then open a Pull Request from `dev` into `main` to release.
+
+CI (lint and build) runs on pushes and Pull Requests to both `dev` and `main`.
+
+Commit messages follow [Conventional Commits](https://www.conventionalcommits.org/) (`feat:`, `fix:`, `chore:`, `docs:`, `ci:` …). Issues referenced with `Closes #<number>` are closed automatically when the change reaches `main`.
 
 ## Available Commands
 
@@ -75,13 +88,15 @@ Starts the development server.
 
     npm run build
 
-Creates a production build of the application.
+Creates a production build of the application. The site is configured as a static export (`output: "export"` in `next.config.ts`), so the build writes plain HTML, CSS and JS to the `out/` folder.
 
-### Start Production Server
+### Preview the Production Build
 
-    npm run start
+`npm run start` does not work with a static export. To preview the built site, serve the `out/` folder with any static file server, for example:
 
-Starts the application using the production build.
+    npx serve out
+
+Then open the URL it prints (usually http://localhost:3000).
 
 ### Lint
 
@@ -94,17 +109,18 @@ Runs ESLint against the project.
     src/
     ├── app/
     ├── components/
-    ├── data/
-    ├── lib/
-    ├── styles/
-    └── types/
+    │   ├── layout/
+    │   └── ui/
+    └── data/
 
     public/
     docs/
 
 The `src/app` directory contains the application's routes and layouts.
 
-Reusable components live under `src/components`.
+Reusable components live under `src/components`: layout pieces (Navbar, Footer, Container) in `layout/` and shared building blocks in `ui/`.
+
+Static data used across pages (such as social profile links) lives under `src/data`.
 
 Project-specific documentation is maintained under `docs`.
 
