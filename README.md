@@ -55,10 +55,9 @@ Where appropriate, projects will link directly to their corresponding GitHub rep
 src/
 ├── app/          # Application routes, pages and layouts
 ├── components/   # Reusable UI components
-├── data/         # Static application data
-├── lib/          # Utilities and shared logic
-├── styles/       # Global and shared styles
-└── types/        # TypeScript type definitions
+│   ├── layout/   # Navbar, Footer, Container
+│   └── ui/       # Shared UI building blocks
+└── data/         # Static application data (e.g. social links)
 
 public/           # Static assets
 
@@ -80,7 +79,7 @@ The project is being developed incrementally.
 - [x] Shared application layout
 - [x] Navigation
 - [x] Footer
-- [ ] Repository documentation
+- [x] Repository documentation
 
 ### Personal Website
 
