@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import QuoteList from "@/components/writing/QuoteList";
 import WritingCard from "@/components/writing/WritingCard";
 import { quotes } from "@/data/quotes";
 import { socialLinks } from "@/data/socialLinks";
@@ -87,43 +88,11 @@ export default function WritingPage ()
         </div>
       ) }
 
-      { englishQuotes.length > 0 && (
-        <section aria-labelledby="quotes-heading" className="mt-24">
-          <h2
-            id="quotes-heading"
-            className="text-sm font-medium uppercase tracking-[0.28em] text-neutral-500"
-          >
-            Short lines
-          </h2>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-neutral-600">
-            Original lines I&apos;ve written over the years, first shared on Miraquill.
-          </p>
-
-          <ul className="mt-8 grid gap-6 sm:grid-cols-2">
-            { englishQuotes.map( ( quote ) => (
-              <li key={ quote.text }>
-                <figure className="h-full rounded-2xl bg-neutral-50 p-6 sm:p-8">
-                  <blockquote className="text-lg font-medium leading-8 text-neutral-800">
-                    <p>&ldquo;{ quote.text }&rdquo;</p>
-                  </blockquote>
-                </figure>
-              </li>
-            ) ) }
-          </ul>
-
-          { miraquillHref && (
-            <a
-              href={ miraquillHref }
-              target="_blank"
-              rel="noopener noreferrer"
-              className={ `mt-8 inline-flex items-center gap-1 rounded-sm text-sm font-medium text-neutral-900 underline-offset-4 transition-colors hover:underline ${ focusRing }` }
-            >
-              More quotes on Miraquill <span aria-hidden="true">↗</span>
-              <span className="sr-only"> (opens in a new tab)</span>
-            </a>
-          ) }
-        </section>
-      ) }
+      <QuoteList
+        quotes={ englishQuotes }
+        intro="Original lines I've written over the years, first shared on Miraquill."
+        moreHref={ miraquillHref }
+      />
     </section>
   );
 }
