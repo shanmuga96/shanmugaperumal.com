@@ -68,6 +68,8 @@ docs/             # Project documentation
 
 To run the project locally, follow the [Development Setup Guide](./docs/setup.md).
 
+For how the site is released, see the [Deployment Guide](./docs/deployment.md).
+
 ## 🗺️ Roadmap
 
 The project is being developed incrementally.
@@ -100,7 +102,7 @@ The project is being developed incrementally.
 
 ### Production
 
-- [ ] Deployment
+- [x] Deployment
 - [ ] Custom domain
 - [ ] SEO
 - [ ] Sitemap
