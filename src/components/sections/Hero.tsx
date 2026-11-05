@@ -39,12 +39,6 @@ export default function Hero ()
           Explore Writing
         </Link>
         <Link
-          href="/projects"
-          className={ `rounded-full border border-neutral-300 px-5 py-3 text-center text-sm font-medium text-neutral-800 transition-colors hover:border-neutral-900 hover:text-neutral-950 ${ focusRing }` }
-        >
-          View Projects
-        </Link>
-        <Link
           href="/about"
           className={ `rounded-sm px-1 py-3 text-center text-sm font-medium text-neutral-600 underline-offset-4 transition-colors hover:text-neutral-950 hover:underline sm:ml-2 ${ focusRing }` }
         >
