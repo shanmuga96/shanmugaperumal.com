@@ -64,10 +64,15 @@ export default function AboutPage ()
               TypeScript, Node.js and AWS at the core.
             </p>
             <p>
-              I trained as an electrical engineer, not a computer scientist, so I learned software by
-              building it, and I&apos;ve come to enjoy working that way. I like taking initiative,
-              simplifying processes for the wider team, and helping juniors find their footing.
-              Explaining something is still the best way I know to understand it.
+              I trained as an electrical engineer, not a computer scientist. I came to software through
+              curiosity, and I learned it by building things. Along the way, more than a few people told
+              me to rethink it: to switch careers, to go back to what I&apos;d studied. I stayed. Eight
+              years on, I&apos;m still here, still building, and still enjoying it.
+            </p>
+            <p>
+              That path shaped how I work. I like taking initiative, simplifying processes for the wider
+              team, and helping juniors find their footing, especially the ones who came in the way I
+              did. Explaining something is still the best way I know to understand it.
             </p>
             <p>
               Outside of code, I write. On <TextLink href={ mediumHref }>Medium</TextLink> I share honest
