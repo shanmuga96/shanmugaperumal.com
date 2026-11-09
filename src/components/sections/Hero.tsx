@@ -16,12 +16,16 @@ export default function Hero ()
 
       <h1
         id="hero-heading"
-        className="mt-4 max-w-4xl text-4xl font-semibold leading-tight tracking-tight text-neutral-900 sm:text-5xl lg:text-6xl"
+        className="mt-4 text-[2rem] font-semibold leading-tight tracking-tight text-neutral-900 sm:text-6xl lg:text-7xl"
       >
-        Hi, I&apos;m Shanmugaperumal. I build for the web, and I write.
+        Shanmugaperumal Seenivasan
       </h1>
 
-      <p className="mt-6 max-w-2xl text-base leading-7 text-neutral-600 sm:text-lg sm:leading-8">
+      <p className="mt-3 max-w-3xl text-xl leading-snug tracking-tight text-neutral-500 sm:mt-4 sm:text-3xl lg:text-4xl">
+        I build for the web, and I write.
+      </p>
+
+      <p className="mt-8 max-w-2xl text-base leading-7 text-neutral-600 sm:text-lg sm:leading-8">
         Eight years in the JavaScript ecosystem, mostly React, TypeScript, Node.js and AWS.
         Outside of code, I write honest essays about life abroad and technical interviews,
         and Tamil poems about people, memories and small moments.
