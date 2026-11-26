@@ -22,9 +22,10 @@ export const metadata: Metadata = {
 };
 
 // Cloudflare Web Analytics (cookie-free). The token is public by design: it
-// ships in every page's HTML. Only loaded in production builds so local dev
-// sessions don't count as visits.
-const CF_ANALYTICS_TOKEN = "da226942da6845edbf28f772f1d6a869";
+// ships in every page's HTML. Set at build time by the deploy workflow; the
+// beacon is skipped when it's unset or outside production builds, so local
+// dev sessions don't count as visits.
+const CF_ANALYTICS_TOKEN = process.env.NEXT_PUBLIC_CF_ANALYTICS_TOKEN;
 
 export default function RootLayout ( {
   children,
@@ -46,7 +47,7 @@ export default function RootLayout ( {
 
         <Footer />
 
-        { process.env.NODE_ENV === "production" && (
+        { process.env.NODE_ENV === "production" && CF_ANALYTICS_TOKEN && (
           <Script
             src="https://static.cloudflareinsights.com/beacon.min.js"
             data-cf-beacon={ JSON.stringify( { token: CF_ANALYTICS_TOKEN } ) }
